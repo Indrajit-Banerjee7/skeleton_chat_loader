@@ -25,11 +25,15 @@ A Flutter package that provides customizable shimmer loading animations for chat
 
 ## Screenshots
 
-![Basic Loading Example](images/simple.png)
-*Basic Loading Example*
+<!-- ![Basic Loading Example](images/simple.png)
+*Basic Loading Example* -->
+<img src="images/simple.png" width="300"/>
 
-![Custom Loading Example](images/colured.png)
-*Basic Loading Example*
+
+<img src="images/colured.png" width="300"/>
+
+<!-- ![Custom Loading Example](images/colured.png)
+*Basic Loading Example* -->
 
 ## Installation
 
