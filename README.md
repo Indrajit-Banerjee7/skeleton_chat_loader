@@ -11,29 +11,95 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+T# skeleton_chat_loader
+
+A Flutter package that provides customizable shimmer loading animations for chat message bubbles, perfect for chat applications while loading messages or waiting for network responses.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Customizable message bubble dimensions
+- Sender/Receiver message bubble styles
+- Configurable shimmer colors
+- Smooth animation transitions
+- Responsive design
 
-## Getting started
+## Installation
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add this to your package's `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  skeleton_chat_loader: ^1.0.0
+```
+
+Run:
+```bash
+flutter pub get
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Import the package:
 
 ```dart
-const like = 'sample';
+import 'package:skeleton_chat_loader/skeleton_chat_loader.dart';
 ```
 
-## Additional information
+### Basic Usage
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```dart
+// Simple message loading skeleton
+MessageShimmerLoading(
+  height: 50,
+  isSender: false,
+  maxWidth: 280,
+)
+```
+
+### Customized Loading Skeleton
+
+```dart
+// Customized message loading skeleton with custom colors
+MessageShimmerLoading(
+  height: 70,
+  isSender: true,
+  maxWidth: 320,
+  shimmerColors: [
+    Colors.blue.shade100,
+    Colors.blue.shade50,
+    Colors.blue.shade100,
+  ],
+)
+```
+
+### Example in a Chat List
+
+```dart
+ListView.builder(
+  itemCount: 5, // Number of loading skeletons
+  itemBuilder: (context, index) {
+    return MessageShimmerLoading(
+      height: 50,
+      isSender: index % 2 == 0, // Alternate between sender and receiver
+      maxWidth: 280,
+    );
+  },
+)
+```
+
+## Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| height | double | 50 | Height of the message bubble |
+| isSender | bool | false | Whether the message is from the sender |
+| maxWidth | double | 280 | Maximum width of the message bubble |
+| shimmerColors | List<Color>? | null | Custom colors for shimmer effect |
+
+## Contributing
+
+Feel free to contribute to this package by creating issues or submitting pull requests on our GitHub repository.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

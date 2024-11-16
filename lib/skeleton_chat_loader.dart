@@ -3,17 +3,19 @@ library skeleton_chat_loader;
 import 'package:flutter/material.dart';
 
 class MessageShimmerLoading extends StatefulWidget {
-  final double width;
+  
   final double height;
   final bool isSender;
   final double maxWidth;
+  final List<Color>? shimmerColors;
 
   const MessageShimmerLoading({
     super.key,
-    this.width = double.infinity,
+    
     this.height = 50,          
     this.isSender = false,
     this.maxWidth = 280,
+    this.shimmerColors,
   });
 
   @override
@@ -46,11 +48,17 @@ class _MessageShimmerLoadingState extends State<MessageShimmerLoading>
 
   @override
   Widget build(BuildContext context) {
+    // Default shimmer colors if none are passed
+    List<Color> shimmerColors = widget.shimmerColors ?? [
+      Colors.grey.shade300,
+      Colors.grey.shade100,
+      Colors.grey.shade300,
+    ];
     return AnimatedBuilder(
       animation: _animation,
       builder: (context, child) {
         return Container(
-          width: widget.width,
+          
           height: widget.height,
           margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
           child: Row(
@@ -88,11 +96,7 @@ class _MessageShimmerLoadingState extends State<MessageShimmerLoading>
                         gradient: LinearGradient(
                           begin: Alignment(_animation.value, 0),
                           end: const Alignment(2, 0),
-                          colors: [
-                            Colors.grey.shade300,
-                            Colors.grey.shade100,
-                            Colors.grey.shade300,
-                          ],
+                          colors: shimmerColors ,
                           stops: const [0.1, 0.3, 0.4],
                         ),
                       ),
