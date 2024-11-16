@@ -27,10 +27,10 @@ A Flutter package that provides customizable shimmer loading animations for chat
 
 <!-- ![Basic Loading Example](images/simple.png)
 *Basic Loading Example* -->
-<img src="images/simple.png" width="300"/>
+<img src="https://github.com/Indrajit-Banerjee7/skeleton_chat_loader/blob/main/images/simple.png?raw=true" width="300"/>
 
 
-<img src="images/colured.png" width="300"/>
+<img src="https://github.com/Indrajit-Banerjee7/skeleton_chat_loader/blob/main/images/colured.png?raw=true" width="300"/>
 
 <!-- ![Custom Loading Example](images/colured.png)
 *Basic Loading Example* -->

@@ -3,7 +3,11 @@
 * TODO: Describe initial release. -->
 # Changelog
 
-All notable changes to this project will be documented in this file.
+## [1.0.0] - 2024-11-17
+- First stable release of the package.
+- Fixed image visibility in README.md file for pub.dev.
+- Updated documentation and minor improvements.
+
 
 ## [0.0.1] - 2024-11-17
 
