@@ -1,7 +1,7 @@
 name: skeleton_chat_loader
 description: "A Flutter widget for skeleton loading animations with a shimmer effect, designed for chat UIs."
 version: 0.0.1
-homepage:
+homepage: https://github.com/Indrajit-Banerjee7/skeleton_chat_loader
 
 environment:
   sdk: '>=3.4.3 <4.0.0'
