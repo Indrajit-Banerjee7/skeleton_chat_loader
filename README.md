@@ -23,6 +23,14 @@ A Flutter package that provides customizable shimmer loading animations for chat
 - Smooth animation transitions
 - Responsive design
 
+## Screenshots
+
+![Basic Loading Example](images/simple.png)
+*Basic Loading Example*
+
+![Custom Loading Example](images/colured.png)
+*Basic Loading Example*
+
 ## Installation
 
 Add this to your package's `pubspec.yaml` file:
