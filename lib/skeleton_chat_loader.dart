@@ -3,7 +3,6 @@ library skeleton_chat_loader;
 import 'package:flutter/material.dart';
 
 class MessageShimmerLoading extends StatefulWidget {
-  
   final double height;
   final bool isSender;
   final double maxWidth;
@@ -11,8 +10,7 @@ class MessageShimmerLoading extends StatefulWidget {
 
   const MessageShimmerLoading({
     super.key,
-    
-    this.height = 50,          
+    this.height = 50,
     this.isSender = false,
     this.maxWidth = 280,
     this.shimmerColors,
@@ -49,28 +47,48 @@ class _MessageShimmerLoadingState extends State<MessageShimmerLoading>
   @override
   Widget build(BuildContext context) {
     // Default shimmer colors if none are passed
-    List<Color> shimmerColors = widget.shimmerColors ?? [
-      Colors.grey.shade300,
-      Colors.grey.shade100,
-      Colors.grey.shade300,
-    ];
+    List<Color> shimmerColors = widget.shimmerColors ??
+        [
+          Colors.grey.shade300,
+          Colors.grey.shade100,
+          Colors.grey.shade300,
+        ];
+
+    // Ensure shimmerColors has exactly 3 colors
+    if (shimmerColors.length > 3) {
+      shimmerColors = shimmerColors.sublist(0, 3);
+    } else if (shimmerColors.length < 3) {
+      // If fewer than 3 colors, fill with default values
+      if (shimmerColors.isEmpty) {
+        shimmerColors = [
+          Colors.grey.shade300,
+          Colors.grey.shade100,
+          Colors.grey.shade300,
+        ];
+      } else if (shimmerColors.length == 1) {
+        shimmerColors.add(Colors.grey.shade300);
+        shimmerColors.add(shimmerColors[0]);
+      } else {
+        shimmerColors.add(shimmerColors[0]);
+      }
+    }
+
     return AnimatedBuilder(
       animation: _animation,
       builder: (context, child) {
         return Container(
-          
           height: widget.height,
           margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
           child: Row(
-            mainAxisAlignment: widget.isSender 
-                ? MainAxisAlignment.end 
+            mainAxisAlignment: widget.isSender
+                ? MainAxisAlignment.end
                 : MainAxisAlignment.start,
             children: [
               Container(
                 constraints: BoxConstraints(maxWidth: widget.maxWidth),
                 child: Column(
-                  crossAxisAlignment: widget.isSender 
-                      ? CrossAxisAlignment.end 
+                  crossAxisAlignment: widget.isSender
+                      ? CrossAxisAlignment.end
                       : CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -96,7 +114,7 @@ class _MessageShimmerLoadingState extends State<MessageShimmerLoading>
                         gradient: LinearGradient(
                           begin: Alignment(_animation.value, 0),
                           end: const Alignment(2, 0),
-                          colors: shimmerColors ,
+                          colors: shimmerColors,
                           stops: const [0.1, 0.3, 0.4],
                         ),
                       ),
@@ -111,4 +129,3 @@ class _MessageShimmerLoadingState extends State<MessageShimmerLoading>
     );
   }
 }
-
